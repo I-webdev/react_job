@@ -24,7 +24,7 @@ function JobListing({ isHome }) {
 
     fetchData();
   }, []);
-  const newData = data.slice(-3);
+  const newData = data.slice(-3, 0);
 
   return (
     <>
