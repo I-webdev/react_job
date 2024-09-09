@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 import axios from "axios";
 import Spinner from "../components/spinner";
 function JobPage() {
@@ -49,12 +50,13 @@ function JobPage() {
   return (
     <>
       <section>
-        <div class="container m-auto py-6 px-6">
+        <div className="container m-auto py-6 px-6">
           <Link
             to="/jobs"
-            class="text-indigo-500 hover:text-indigo-600 flex items-center"
+            className="text-indigo-500 hover:text-indigo-600 flex items-center"
           >
-            <i class="fas fa-arrow-left mr-2"></i> Back to Job Listings
+            <FaArrowLeft className="mr-2" />
+            Back to Job Listings
           </Link>
         </div>
       </section>
