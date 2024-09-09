@@ -40,7 +40,7 @@ function submitForm( e ) {
      console.log(error);
    }
  })();
-    return navigate("/jobs")
+    return navigate("/")
     
 }
     return (
