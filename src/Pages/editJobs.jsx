@@ -38,7 +38,7 @@ export default function EditJob() {
     (async () => {
       try {
         const response = await axios.patch(
-          `/api/${id}`,
+          `https://job-api-k0mu.onrender.com/${id}`,
           newJob
         );
         console.log(response.data);

@@ -14,7 +14,7 @@ function JobPage() {
     (async () => {
       try {
         const response = await axios.delete(
-          `/api/${id}`
+          `https://job-api-k0mu.onrender.com/${id}`
         );
       } catch (error) {
         console.error("Error deleting data:", error);
@@ -27,7 +27,7 @@ function JobPage() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `/api/${id}`
+          `https://job-api-k0mu.onrender.com/${id}`
         );
 
         setData(response.data);
