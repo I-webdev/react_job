@@ -2,30 +2,29 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import JobSingular from "./job-singular";
 import Spinner from "./spinner";
-import { useLoaderData } from "react-router-dom";
 
 function JobListing({ isHome }) {
-  const data = useLoaderData();
-  
-  
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get(`https://job-api-k0mu.onrender.com`);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`https://job-api-k0mu.onrender.com`);
 
-  //       setData(response.data);
+        setData(response.data);
 
-  //       setLoading(false);
-  //     } catch (err) {
-  //       setError(err);
-  //       setLoading(false);
-  //     }
-  //   };
+        setLoading(false);
+      } catch (err) {
+        setError(err);
+        setLoading(false);
+      }
+    };
 
     fetchData();
   }, []);
-  const newData = data.slice(-3);
+  const newData = data.slice(-3, 0);
 
   return (
     <>
@@ -35,6 +34,10 @@ function JobListing({ isHome }) {
             {isHome ? "Recent Jobs" : "Browse Jobs"}
           </h2>
 
+          {loading ? (
+            <Spinner loading={loading} />
+          ) : (
+            <>
               {isHome ? (
                 <div className="flex flex-col-reverse md:flex-row-reverse gap-6">
                   {newData.map((dat) => (
@@ -48,8 +51,8 @@ function JobListing({ isHome }) {
                   ))}
                 </div>
               )}
-            
-          
+            </>
+          )}
         </div>
       </section>
     </>
