@@ -7,7 +7,7 @@ import JobPage from "../Pages/jobsPage";
 import RecentJob from "../Pages/RecentJobs";
 import BrowseJobLayout from "../layouts/BrowseJobLayout";
 import EditJob from "../Pages/editJobs";
-import FetchData from "./dataFetcher";
+import FetchData, { FullData } from "./dataFetcher";
 
 
 
@@ -21,6 +21,7 @@ function App() {
         {
           path: "/",
           element: <HomePage />,
+          loader: FullData,
         },
 
         // {
@@ -37,10 +38,12 @@ function App() {
         {
           path: "/jobs",
           element: <RecentJob />,
+          loader: FullData,
         },
         {
           path: "/job/:id",
           element: <JobPage />,
+          loader: FetchData,
         },
         {
           path: "/add_job",
