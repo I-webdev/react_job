@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link, useNavigate, useLoaderData } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import axios from "axios";
 import Spinner from "../components/spinner";
 function JobPage() {
-  
-  const [data, setData] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const data = useLoaderData();
+
+  // const [data, setData] = useState({});
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(null);
   let { id } = useParams();
   const navigate = useNavigate();
 
@@ -24,28 +25,26 @@ function JobPage() {
     return navigate("/jobs");
   }
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `https://job-api-k0mu.onrender.com/${id}`
-        );
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         `https://job-api-k0mu.onrender.com/${id}`
+  //       );
 
-        setData(response.data);
+  //       setData(response.data);
 
-        setLoading(false);
-      } catch (err) {
-        setError(err);
-        setLoading(false);
-      }
-    };
+  //       setLoading(false);
+  //     } catch (err) {
+  //       setError(err);
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
-  
+  //   fetchData();
+  // }, []);
 
-
-  let company = data.company; 
+  let company = data.company;
 
   return (
     <>

@@ -1,7 +1,7 @@
 import axios from "axios";
 // import { useParams } from "react-router-dom";
 
-const fetchData = async ({ params }) => {
+const FetchData = async ({ params }) => {
   try {
     const response = await axios.get(
       `https://job-api-k0mu.onrender.com/${params.id}`
@@ -13,4 +13,16 @@ const fetchData = async ({ params }) => {
     console.log(err);
   }
 };
-export default fetchData;
+const FullData = async ({ params }) => {
+  try {
+    const response = await axios.get(
+      `https://job-api-k0mu.onrender.com/`
+    );
+
+    let fullData = response.data;
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+export {FetchData as default, FullData};
