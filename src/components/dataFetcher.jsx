@@ -20,7 +20,7 @@ const FullData = async ({ params }) => {
     );
 
     let fullData = response.data;
-    return data;
+    return fullData;
   } catch (err) {
     console.log(err);
   }

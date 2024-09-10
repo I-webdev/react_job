@@ -7,7 +7,7 @@ import JobPage from "../Pages/jobsPage";
 import RecentJob from "../Pages/RecentJobs";
 import BrowseJobLayout from "../layouts/BrowseJobLayout";
 import EditJob from "../Pages/editJobs";
-import FetchData, { FullData } from "./dataFetcher";
+import FetchData from "./dataFetcher";
 
 const router = createBrowserRouter([
   {
@@ -18,8 +18,13 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
-        loader: FullData,
+        loader: FetchData,
       },
+
+      // {
+      //   path: "/add_jobs",
+      //   element: <HomePage />,
+      // },
     ],
   },
   {
@@ -30,12 +35,12 @@ const router = createBrowserRouter([
       {
         path: "/jobs",
         element: <RecentJob />,
-        loader: FullData,
+        loader: FetchData,
       },
       {
         path: "/job/:id",
         element: <JobPage />,
-        loader: FullData,
+        loader: FetchData,
       },
       {
         path: "/add_job",
