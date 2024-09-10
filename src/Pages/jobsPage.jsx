@@ -59,9 +59,7 @@ function JobPage() {
           </Link>
         </div>
       </section>
-      {loading ? (
-        <Spinner />
-      ) : (
+      
         <section className="bg-indigo-50">
           <div className="container m-auto py-10 px-6">
             <div className="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
@@ -133,7 +131,7 @@ function JobPage() {
             </div>
           </div>
         </section>
-      )}
+      
     </>
   );
 }

@@ -35,10 +35,6 @@ function JobListing({ isHome }) {
             {isHome ? "Recent Jobs" : "Browse Jobs"}
           </h2>
 
-          {loading ? (
-            <Spinner loading={loading} />
-          ) : (
-            <>
               {isHome ? (
                 <div className="flex flex-col-reverse md:flex-row-reverse gap-6">
                   {newData.map((dat) => (
@@ -52,8 +48,8 @@ function JobListing({ isHome }) {
                   ))}
                 </div>
               )}
-            </>
-          )}
+            
+          
         </div>
       </section>
     </>
