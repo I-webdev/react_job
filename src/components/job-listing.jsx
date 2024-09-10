@@ -11,7 +11,7 @@ function JobListing({ isHome }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://job-api-k0mu.onrender.com`);
+        const response = await axios.get(`https://job-api-k0mu.onrender.com/`);
 
         setData(response.data);
 

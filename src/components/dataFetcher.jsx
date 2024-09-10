@@ -13,16 +13,4 @@ const FetchData = async ({ params }) => {
     console.log(err);
   }
 };
-const FullData = async ({ params }) => {
-  try {
-    const response = await axios.get(
-      `https://job-api-k0mu.onrender.com/`
-    );
-
-    let fullData = response.data;
-    return fullData;
-  } catch (err) {
-    console.log(err);
-  }
-};
-export {FetchData as default, FullData};
+export default FetchData;
