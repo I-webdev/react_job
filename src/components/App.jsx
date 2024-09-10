@@ -7,53 +7,53 @@ import JobPage from "../Pages/jobsPage";
 import RecentJob from "../Pages/RecentJobs";
 import BrowseJobLayout from "../layouts/BrowseJobLayout";
 import EditJob from "../Pages/editJobs";
-import FetchData, { FullData } from "./dataFetcher";
+import FetchData from "./dataFetcher";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "/",
-        element: <HomePage />,
-      },
 
-      // {
-      //   path: "/add_jobs",
-      //   element: <HomePage />,
-      // },
-    ],
-  },
-  {
-    path: "/",
-    element: <BrowseJobLayout />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "/jobs",
-        element: <RecentJob />,
-      },
-      {
-        path: "/job/:id",
-        element: <JobPage />,
-        loader: FullData
-      },
-      {
-        path: "/add_job",
-        element: <AddJobPage />,
-      },
-      {
-        path: "/job/edit/:id",
-        element: <EditJob />,
-        loader: FetchData,
-      },
-    ],
-  },
-]);
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      errorElement: <ErrorPage />,
+      children: [
+        {
+          path: "/",
+          element: <HomePage />,
+        },
+
+        // {
+        //   path: "/add_jobs",
+        //   element: <HomePage />,
+        // },
+      ],
+    },
+    {
+      path: "/",
+      element: <BrowseJobLayout />,
+      errorElement: <ErrorPage />,
+      children: [
+        {
+          path: "/jobs",
+          element: <RecentJob />,
+        },
+        {
+          path: "/job/:id",
+          element: <JobPage />,
+        },
+        {
+          path: "/add_job",
+          element: <AddJobPage />,
+        },
+        {
+          path: "/job/edit/:id",
+          element: <EditJob />,
+          loader: FetchData,
+        },
+      ],
+    },
+  ]);
   return <RouterProvider router={router} />;
 }
 
